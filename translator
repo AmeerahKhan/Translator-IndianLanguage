@@ -1,8 +1,0 @@
-
-echo "Select Your word Number"
-curl http://semes-olla.rhcloud.com/words?Swadesh/English.py
-
-read -p 'Enter nubmer of your word to Translate' INPUT
-expr $INPUT
-"$INPUT&"=Test
-curl 'http://semes-olla.rhcloud.com/word?TestSwadesh/Hindi.py'
