@@ -1,6 +1,8 @@
 install: translate_ui-hi.mo
 	install lang translate_ui /usr/local/bin
 	which gdialog>/dev/null 2>&1 || install gdialog /usr/local/bin
+	grep -q "`cat lang.services`" /etc/services || cat lang.services >> /etc/services
+	install lang.xinetd /etc/xinetd.d/lang
 	ln -sf /usr/local/bin/translate_ui /usr/local/bin/ntranslate_ui
 	install translate_ui-hi.mo /usr/share/locale/hi/LC_MESSAGES/translate_ui.mo
 
