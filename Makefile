@@ -1,13 +1,12 @@
-install :translate_ui-hi.mo
-install: lang translate_ui /usr/local/bin
+install: translate_ui-hi.mo
+	install lang translate_ui /usr/local/bin
 	which gdialog>/dev/null 2>&1 || install gdialog /usr/local/bin
 	ln -sf /usr/local/bin/translate_ui /usr/local/bin/ntranslate_ui
-	install: translate_ui-hi.mo /usr/share/locale/hi/LC_MESSAGES/
+	install translate_ui-hi.mo /usr/share/locale/hi/LC_MESSAGES/translate_ui.mo
 
-      
-
-	translate_ui.pot:translate_ui
+translate_ui.pot:translate_ui
 	 xgettext -o translate_ui.pot -L Shell translate_ui
+
 translate_ui-hi.mo: translate_ui-hi.po
 	msgfmt -o translate_ui-hi.mo translate_ui-hi.po
 

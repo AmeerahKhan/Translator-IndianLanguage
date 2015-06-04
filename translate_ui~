@@ -59,11 +59,11 @@ fi
 
 while true
 do
-	$DIALOG --inputbox "`cat $FILERT`\\n\\n`$GETTEXT \"Enter Line:\"`" 8 35 2> $FILE1 || end
+	$DIALOG --inputbox "`cat $FILERT`\\n\\n`$GETTEXT \"Enter the number of the word to be translated:\"`" 8 35 2> $FILE1 || end
 	curl -s "http://semes-olla.rhcloud.com/word?`cat $FILE1`&Swadesh/Hindi.py" > $FILE2
 	if [ -s $FILE2 ]
 	then
-		MSG="`$GETTEXT \"Translated:\"` `cat $FILE2`\\n\\n`$GETTEXT \"Continue?\"`"
+		MSG="`$GETTEXT \"Result:\"` `cat $FILE2`\\n\\n`$GETTEXT \"Continue?\"`"
 	        $DIALOG --yesno "$MSG" 7 20 || end
 	else
 	   
